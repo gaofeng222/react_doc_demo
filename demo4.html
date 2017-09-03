@@ -62,6 +62,63 @@
                 <App />,
                 document.getElementById('root')
         )
+        //提取组件
+        /*function Comment(props){
+            return (
+                <div>
+                    <div className='Comment>
+                        <div className = "UserInfo>
+                            <img className='Avatar' src={props.author.avator} alt={props.author.name} />
+                            <div className='UserInfo-name'>
+                                { props.author.name }
+                            </div>
+                        </div>
+                    </div>
+                    <div className='Comment-text'>
+                                { props.text }
+                    </div>
+                    <div className="Comment-date">
+                                { formatDate(props.date) }
+                    </div>
+                </div>
+            )
+        }*/
+        function Comment(props){
+            return (
+                <div>
+                    <div className='Comment>
+                        <UserInfo user={props.author} />
+                    </div>
+                    <div className='Comment-text'>
+                                { props.text }
+                    </div>
+                    <div className="Comment-date">
+                                { formatDate(props.date) }
+                    </div>
+                </div>
+            )
+        }
+        /*
+            提取Avator组件
+
+         */
+        function Avator(props){
+            return (
+                    <img className = 'Avator' src={props.author.avator} alt={props.author.name} />
+            )
+        }
+
+        function UserInfo(props){
+            return (
+                    <div className='UserInfo'>
+                            <Avator user={props.user} />
+                            <div className = 'UserInfo-name'>
+                                {props.user.name}
+                            </div>
+                    </div>
+            )
+        }
+
 </script>
 </body>
 </html>
