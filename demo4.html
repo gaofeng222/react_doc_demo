@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <title>组件&Props</title>
+</head>
+<body>
+<div id="box"></div>
+<div id="root"></div>
+<script type="text/babel">
+        //函数定义,类定义组件
+        //定义一个组件最简单的方式是使用js函数
+        /*function Welcome(props){
+            return <p>Hello,{props.name}</p>
+        }
+        const user = {
+            name : '高峰'
+        }
+        const element = (
+                <div>
+                    <h1>This is a component!</h1>
+                    <h2>Hello,{Welcome(user)}</h2>
+                </div>
+        )
+        ReactDOM.render(
+                element,
+                document.getElementById("root")
+        )*/
+     //使用ES6 class来定义一个组件
+     /*class Welcome extends React.Component {
+         render() {
+             return <h1>Hello,{ this.props.name }</h1>
+         }
+     }*/
+        /*var Welcome =  function(props){
+            return <p>Hello,{props.name}</p>
+        }
+
+        const element = <Welcome name = "高峰2222" />;
+
+        ReactDOM.render(
+                element,
+                document.getElementById("root")
+        )*/
+        // 组件中嵌套组件
+         function Welcome(props){
+             return <h1>Hello,{props.name}</h1>
+         }
+        function App(){
+            return (
+                 <div>
+                      <Welcome name = "baidu" />
+                      <Welcome name = "sina" />
+                      <Welcome name = "google" />
+                 </div>
+            )
+        }
+        ReactDOM.render(
+                <App />,
+                document.getElementById('root')
+        )
+</script>
+</body>
+</html>
