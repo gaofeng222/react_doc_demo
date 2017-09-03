@@ -85,10 +85,8 @@
         }*/
         function Comment(props){
             return (
-                <div>
-                    <div className='Comment>
-                        <UserInfo user={props.author} />
-                    </div>
+                <div className='Comment'>
+                    <UserInfo user={props.author} />
                     <div className='Comment-text'>
                                 { props.text }
                     </div>
@@ -102,24 +100,27 @@
             提取Avator组件
 
          */
-        function Avator(props){
+        function formatDate(){
+            return new Date().toLocaleTimeString();
+        }
+        function Avatar(props) {
             return (
-                    <img className = 'Avator' src={props.author.avator} alt={props.author.name} />
-            )
+                    <img className="Avatar" src={props.user.avatarUrl} alt={props.user.name}/>
+        );
         }
 
         function UserInfo(props){
             return (
                     <div className='UserInfo'>
-                            <Avator user={props.user} />
+                            <Avatar user={props.user} />
                             <div className = 'UserInfo-name'>
                                 {props.user.name}
                             </div>
                     </div>
             )
         }
-        DeactDOM.render(
-                <Comment />,
+       ReactDOM.render(
+                <Comment author={ {avatarUrl : "http://ww2.sinaimg.cn/mw690/938c07e6gw1f5e7y107eoj20f10j9jtr.jpg",name:"这是图片介绍~~~"} } text="123" date={new Date().toLocaleTimeString()} />,
                 document.getElementById("box")
         )
 </script>
